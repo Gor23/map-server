@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<title>OpenLayers Simplest Example</title>
+<div id="demoMap" style="height:500px"></div>
+<script src="OpenLayers.js"></script>
+<script type="text/javascript" src="http://maplib.khtml.org/khtml.maplib/khtml_all.js"> </script>
+<script>
+    map = new OpenLayers.Map("demoMap");
+    map.addLayer(new OpenLayers.Layer.OSM());
+    map.zoomToMaxExtent();
+debugger;
+    var marker = new khtml.maplib.overlay.Marker({
+    position: new khtml.maplib.LatLng(49.093533,33.423533), 
+    map: map,
+    title:"static marker"
+});
+</script>

@@ -1,0 +1,47 @@
+<html><body>
+  <div id="mapdiv"></div>
+  <script src="OpenLayers-2.13.1/webSocket.js"></script>
+  <script src="OpenLayers-2.13.1/sockjs-0.3.4.js"></script>
+  <script src="OpenLayers-2.13.1/jquery-2.2.4.js"></script>
+  <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+  <script>
+    map = new OpenLayers.Map("mapdiv");
+    map.addLayer(new OpenLayers.Layer.OSM());
+
+    var markers = new OpenLayers.Layer.Markers( "Markers" );
+    map.addLayer(markers);
+
+
+//    var strPoint = new OpenLayers.Geometry.Point(33.423533, 49.093533).transform(
+//            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+//            map.getProjectionObject() // to Spherical Mercator Projection
+//          );
+//    var endPoint = new OpenLayers.Geometry.Point(33.223133, 49.093533).transform(
+//            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+//            map.getProjectionObject() // to Spherical Mercator Projection
+//          );
+//
+////make the line:
+//var line=new OpenLayers.Geometry.LineString([strPoint, endPoint]);
+////style
+//var style={strokeColor:"#0500bd", strokeWidth:3};
+////make vector
+//var fea=new OpenLayers.Feature.Vector(line, {}, style);
+//
+////make vectorLayer
+//var vec= new OpenLayers.Layer.Vector();
+//
+////add the feature
+//vec.addFeatures([fea]);
+//
+////add to map
+//map.addLayer(vec);
+    map.zoom = 12
+    </script>
+    <script>
+      window.onload = function() {
+          connect('/event');
+      }
+  </script>
+</body></html>
